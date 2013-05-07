@@ -212,7 +212,7 @@ ROW;
 }
 
 function muAdminUrl($page = '') {
-	$admin = YOURLS_SITE . '/user/plugins/multi-user/' . $page;
+	$admin = YOURLS_SITE . '/user/plugins/multi-user-apacheauth/' . $page;
 	return yourls_apply_filter( 'admin_url', $admin, $page );
 }
 
