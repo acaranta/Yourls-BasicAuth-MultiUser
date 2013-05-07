@@ -4,11 +4,11 @@ if (!defined('YOURLS_MULTIUSER_PROTECTED')) {
 }
 
 if(!defined('YOURLS_DB_TABLE_USERS')) {
-	define('YOURLS_DB_TABLE_USERS', YOURLS_DB_PREFIX."users");
+	define('YOURLS_DB_TABLE_USERS', YOURLS_DB_PREFIX."ba_users");
 }
 
 if(!defined('YOURLS_DB_TABLE_URL_TO_USER')) {
-	define('YOURLS_DB_TABLE_URL_TO_USER', YOURLS_DB_PREFIX.'url_to_user');
+	define('YOURLS_DB_TABLE_URL_TO_USER', YOURLS_DB_PREFIX.'ba_url_to_user');
 }
 
 if(!defined('YOURLS_MULTIUSER_CAPTCHA')) {

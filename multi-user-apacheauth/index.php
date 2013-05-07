@@ -16,7 +16,10 @@ if($act == "logout") {
 }
 
 $username = $_SERVER['PHP_AUTH_USER'] ;
-$password = $_SERVER['PHP_AUTH_PW'] ;
+//$password = $_SERVER['PHP_AUTH_PW'] ;
+$password = md5(uniqid(rand(), true)) ;
+// password is not important, we will not check again against the localdatabase
+// so we generate and store a fake one
 
 // If login AND password
 if(!empty($username) && !empty($password)) {
@@ -25,7 +28,6 @@ if(!empty($username) && !empty($password)) {
 	if(!$results) {
 		// If user does not already exists ... CREATE IT !!!
 		$token = createRandonToken();
-		$password = md5('whocares');
 		$ydb->query("insert into `$table` (user_email, user_password, user_token) values ('$username', '$password', '$token')");
 		$results = $ydb->get_results("select user_token from `$table` where `user_email` = '$username'");
 		if (!empty($results)) {
