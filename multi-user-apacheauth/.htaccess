@@ -1,5 +1,0 @@
-AuthType Basic
-AuthName "My Protected Area"
-AuthUserFile /var/www/yourlstest/.htpasswd
-Require valid-user
-
