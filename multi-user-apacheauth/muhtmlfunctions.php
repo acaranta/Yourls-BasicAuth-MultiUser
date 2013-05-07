@@ -92,13 +92,7 @@ function mu_html_menu() {
 
 <ul id="admin_menu">
 	<li><a href="<?php  echo YOURLS_SITE; ?>">Home</a> <?php
-	if(isLogged()) {
-		?>
-	
-	<li><a href="<?php echo muAdminUrl('index.php?act=logout'); ?>">Logout</a>
-	</li>
-	<?php
-	} else {
+	if(!isLogged()) {
 		?>
 	<li><a href="<?php echo muAdminUrl('index.php'); ?>">Log in</a></li>
 	<li><a href="<?php echo muAdminUrl('index.php?act=joinform'); ?>">Sign

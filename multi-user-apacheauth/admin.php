@@ -214,6 +214,7 @@ if(isLogged()) {
 	mu_html_menu() ;
 	?>
 	<?php if ( !$is_bookmark ) { ?>
+	<p>Welcome, <?php echo $_SESSION['user']['user']; ?>
 	<p>Your token: <?php echo $_SESSION['user']['token']; ?></p>
 <p>
 <?php echo $search_display; ?>
