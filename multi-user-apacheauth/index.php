@@ -40,4 +40,4 @@ if(!empty($username) && !empty($password)) {
 }
 
 include("admin.php");
-yourls_html_footer();
+//yourls_html_footer();
