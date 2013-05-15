@@ -21,7 +21,7 @@ if(YOURLS_PRIVATE === true) {
 	yourls_add_action( 'load_template_infos', "trapLoadTemplateInfos" );
 	yourls_add_action( 'pre_edit_link', "updateLinkEdit");
 	yourls_add_action( 'delete_link', "updateLinkDelete");
-	yourls_add_action( 'activated_multi-user-apacheauth/plugin.php', 'tryToInstall' );
+	yourls_add_action( 'activated_multi-user-basicauth/plugin.php', 'tryToInstall' );
 	yourls_add_action( 'pre_add_new_link', "preAddLink");
 	yourls_add_filter( 'is_valid_user', "muIsValidUser");
 
