@@ -23,5 +23,9 @@ Plugin Installation
 * activate the plugin from your Yourls admin panel
 
 
+Apache Config
+-------------
+T.B.D ;)
+
 
 THIS PLUGIN AND DOCUMENTATION ARE WORK IN PROGRESS ;)
