@@ -32,17 +32,18 @@ Authentication
 Several Methods are possible.
 *First you are selfhosted and you fully control your apache configuration file (GOOOOD ;) ).
 In This case you could just add your Auth method to your Yourls Vhost configuration like this :
-    -----8<-----8<-----8<-----8<-----8<-----8<-----
-    <Location /user/plugins/multi-user-basicauth>
-            AuthName "Yourls user identification"
-            AuthType Basic
-            AuthUserFile <path to your htpasswd file>
-            require valid-user
-            Allow from all
-            Order deny,allow
-    </Location>
-    -----8<-----8<-----8<-----8<-----8<-----8<-----
-
+```
+-----8<-----8<-----8<-----8<-----8<-----8<-----
+<Location /user/plugins/multi-user-basicauth>
+        AuthName "Yourls user identification"
+        AuthType Basic
+        AuthUserFile <path to your htpasswd file>
+        require valid-user
+        Allow from all
+        Order deny,allow
+</Location>
+-----8<-----8<-----8<-----8<-----8<-----8<-----
+```
 *Your can not modify your apache main config files (DAMN :( ).
 In this case using an .htaccess file in /user/plugins/multi-user-basicauth you do the trick :
     -----8<-----8<-----8<-----8<-----8<-----8<-----
