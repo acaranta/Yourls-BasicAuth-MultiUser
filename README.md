@@ -25,7 +25,86 @@ Plugin Installation
 
 Apache Config
 -------------
-T.B.D ;)
 
+Authentication
+==============
 
-THIS PLUGIN AND DOCUMENTATION ARE WORK IN PROGRESS ;)
+Several Methods are possible.
+*First you are selfhosted and you fully control your apache configuration file (GOOOOD ;) ).
+In This case you could just add your Auth method to your Yourls Vhost configuration like this :
+-----8<-----8<-----8<-----8<-----8<-----8<-----
+<Location /user/plugins/multi-user-basicauth>
+        AuthName "Yourls user identification"
+        AuthType Basic
+        AuthUserFile <path to your htpasswd file>
+        require valid-user
+        Allow from all
+        Order deny,allow
+</Location>
+-----8<-----8<-----8<-----8<-----8<-----8<-----
+
+*Your can not modify your apache main config files (DAMN :( ).
+In this case using an .htaccess file in /user/plugins/multi-user-basicauth you do the trick :
+-----8<-----8<-----8<-----8<-----8<-----8<-----
+<Location /user/plugins/multi-user-basicauth>
+        AuthName "Yourls user identification"
+        AuthType Basic
+        AuthUserFile <path to your htpasswd file>
+        require valid-user
+        Allow from all
+        Order deny,allow
+</Location>
+-----8<-----8<-----8<-----8<-----8<-----8<-----
+
+Enhancements
+============
+(This section does not describe 
+*Next you would sure like the user to be redirected to the correct URL, easily, etc.
+First if you are able to use the Apache Proxy Module, go ahead activate it and add to your your vhost config file :
+-----8<-----8<-----8<-----8<-----8<-----8<-----
+	   ProxyPass /users http://coupe.la/user/plugins/multi-user-basicauth
+	   ProxyPassReverse /users http://coupe.la/user/plugins/multi-user-basicauth
+-----8<-----8<-----8<-----8<-----8<-----8<-----
+
+For .htaccess syntax you could add in the base Yourls install dir .htaccess
+-----8<-----8<-----8<-----8<-----8<-----8<-----
+	<IfModule mod_proxy.c>
+	   ProxyPass /users http://coupe.la/user/plugins/multi-user-basicauth
+	   ProxyPassReverse /users http://coupe.la/user/plugins/multi-user-basicauth
+	</IfModule>
+-----8<-----8<-----8<-----8<-----8<-----8<-----
+
+Bear in mind not to use a path already existing :p ''/users'' is currently OK with Yourls
+This will allow you to direct users to :
+http://<YOURLS_BASE>/users/
+instead of :
+http://<YOURLS_BASE>/user/plugins/multi-user-basicauth/
+Ouuuuuuuhhhh Niiice ;)
+
+*What if the default redirect was not on the Yourls default ''/admin'' panel but to this multi-user interface ?
+To do so, edit the default Redirect Yourls creates in its base instal directory, in the file '.htaccess''
+-----8<-----8<-----8<-----8<-----8<-----8<-----
+# BEGIN YOURLS
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /yourls-loader.php [L]
+</IfModule>
+# END YOURLS
+-----8<-----8<-----8<-----8<-----8<-----8<-----
+And change the last rewrite to
+-----8<-----8<-----8<-----8<-----8<-----8<-----
+# BEGIN YOURLS
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /users [L]
+</IfModule>
+# END YOURLS
+-----8<-----8<-----8<-----8<-----8<-----8<-----
+
+Voila !
