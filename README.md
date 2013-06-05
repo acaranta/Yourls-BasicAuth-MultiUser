@@ -34,24 +34,24 @@ Several Methods are possible.
 In This case you could just add your Auth method to your Yourls Vhost configuration like this :
 ```
 <Location /user/plugins/multi-user-basicauth>
-        AuthName "Yourls user identification"
-        AuthType Basic
-        AuthUserFile <path to your htpasswd file>
-        require valid-user
-        Allow from all
-        Order deny,allow
+AuthName "Yourls user identification"
+AuthType Basic
+AuthUserFile <path to your htpasswd file>
+require valid-user
+Allow from all
+Order deny,allow
 </Location>
 ```
 * You can not modify your apache main config files (DAMN :( ).
 In this case using an .htaccess file in /user/plugins/multi-user-basicauth you do the trick :
 ```
 <Location /user/plugins/multi-user-basicauth>
-        AuthName "Yourls user identification"
-        AuthType Basic
-        AuthUserFile <path to your htpasswd file>
-        require valid-user
-        Allow from all
-        Order deny,allow
+AuthName "Yourls user identification"
+AuthType Basic
+AuthUserFile <path to your htpasswd file>
+require valid-user
+Allow from all
+Order deny,allow
 </Location>
 ```
 
@@ -60,15 +60,15 @@ Enhancements
 * Next you would sure like the user to be redirected to the correct URL, easily, etc.
 First if you are able to use the Apache Proxy Module, go ahead activate it and add to your your vhost config file :
 ```
-  ProxyPass /users http://coupe.la/user/plugins/multi-user-basicauth
-  ProxyPassReverse /users http://coupe.la/user/plugins/multi-user-basicauth
+ProxyPass /users http://coupe.la/user/plugins/multi-user-basicauth
+ProxyPassReverse /users http://coupe.la/user/plugins/multi-user-basicauth
 ```
 
 For .htaccess syntax you could add in the base Yourls install dir .htaccess
 ```
 <IfModule mod_proxy.c>
-   ProxyPass /users http://coupe.la/user/plugins/multi-user-basicauth
-   ProxyPassReverse /users http://coupe.la/user/plugins/multi-user-basicauth
+ProxyPass /users http://coupe.la/user/plugins/multi-user-basicauth
+ProxyPassReverse /users http://coupe.la/user/plugins/multi-user-basicauth
 </IfModule>
 ```
 
