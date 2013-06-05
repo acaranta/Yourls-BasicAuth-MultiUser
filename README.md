@@ -19,7 +19,7 @@ When the Auth has succeeded, we get the credentials from the webserver and use t
 Plugin Installation
 -------------------
 
-* copy the 'multi-user-apacheauth' directory to your Yourls "user/plugins" directory
+* copy the 'multi-user-basicauth' directory to your Yourls "user/plugins" directory
 * activate the plugin from your Yourls admin panel
 
 

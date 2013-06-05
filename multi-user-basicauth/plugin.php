@@ -5,7 +5,7 @@ include("mufunctions.php");
 /*
  Plugin Name: Multi User with Apache Auth
  Plugin URI: https://github.com/acaranta/Yourls-BasicAuth-MultiUser
- Description: Multi User Support based on apache credentials. Please Read the README (on the github repo), then to login, go to http://yourYourlsBaseURL/user/plugins/multi-user-apacheauth
+ Description: Multi User Support based on apache credentials. Please Read the README (on the github repo), then to login, go to http://yourYourlsBaseURL/user/plugins/multi-user-basicauth
  Version: 1.0beta
  Author: Arthur Caranta - arthur@caranta.com
  Author URI: http://twitter.com/arthur_caranta
