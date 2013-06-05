@@ -32,6 +32,7 @@ Authentication
 Several Methods are possible.
 * First you are selfhosted and you fully control your apache configuration file (GOOOOD ;) ).
 In This case you could just add your Auth method to your Yourls Vhost configuration like this :
+
 ```
 <Location /user/plugins/multi-user-basicauth>
 AuthName "Yourls user identification"
@@ -44,6 +45,7 @@ Order deny,allow
 ```
 * You can not modify your apache main config files (DAMN :( ).
 In this case using an .htaccess file in /user/plugins/multi-user-basicauth you do the trick :
+
 ```
 <Location /user/plugins/multi-user-basicauth>
 AuthName "Yourls user identification"
@@ -59,6 +61,7 @@ Enhancements
 ============
 * Next you would sure like the user to be redirected to the correct URL, easily, etc.
 First if you are able to use the Apache Proxy Module, go ahead activate it and add to your your vhost config file :
+
 ```
 ProxyPass /users http://coupe.la/user/plugins/multi-user-basicauth
 ProxyPassReverse /users http://coupe.la/user/plugins/multi-user-basicauth
@@ -81,6 +84,7 @@ Ouuuuuuuhhhh Niiice ;)
 
 * Now ... What if the default redirect was not on the Yourls default ''/admin'' panel but to this multi-user interface ?
 To do so, edit the default Redirect Yourls creates in its base instal directory, in the file '.htaccess''
+
 ```
 # BEGIN YOURLS
 <IfModule mod_rewrite.c>
